@@ -6,7 +6,7 @@ import threading
 import imutils
 import time
 
-stream = cv2.VideoCapture("video.mp4")
+stream = cv2.VideoCapture("video0.mp4")
 flag = True
 def play(speed):
     global flag
@@ -92,7 +92,7 @@ btn = tkinter.Button(window, text="<< Previous (fast)", width=50, command=partia
 btn.pack()
 btn = tkinter.Button(window, text="<< Previous (slow)", width=50, command=partial(play, -2))
 btn.pack()
-btn = tkinter.Button(window, text=" Next (slow) >>", width=50, command=partial(play, 2))
+btn = tkinter.Button(window, text=" Next (slow) >>", width=50, command=partial(play, 1))
 btn.pack()
 btn = tkinter.Button(window, text=" Next (fast) >>", width=50, command=partial(play, 25))
 btn.pack()
