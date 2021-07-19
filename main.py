@@ -6,7 +6,7 @@ import threading
 import imutils
 import time
 
-stream = cv2.VideoCapture("video0.mp4")
+stream = cv2.VideoCapture('video0.mp4')
 flag = True
 def play(speed):
     global flag
@@ -30,7 +30,7 @@ def play(speed):
 
 def pending(decision):
     # 1. Display decision pending image
-    frame = cv2.cvtColor(cv2.imread("pending.jpg"), cv2.COLOR_BGR2RGB)
+    frame = cv2.cvtColor(cv2.imread("pending.jpeg"), cv2.COLOR_BGR2RGB)
     frame = imutils.resize(frame, width = SET_WIDTH, height = SET_HEIGHT) # resizing the image if not done
     frame = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(frame)) # tkinter compactible, takes image wherever expects an image.
     canvas.image = frame
@@ -51,9 +51,9 @@ def pending(decision):
     
     # 5. Display out/notout image
     if decision == 'out':
-        decisionImg = "out.jpg"
+        decisionImg = "out.jpeg"
     else:
-        decisionImg = "not_out.jpg"
+        decisionImg = "not_out.jpeg"
     frame = cv2.cvtColor(cv2.imread(decisionImg), cv2.COLOR_BGR2RGB)
     frame = imutils.resize(frame, width = SET_WIDTH, height = SET_HEIGHT) # resizing the image if not done
     frame = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(frame)) # tkinter compactible, takes image wherever expects an image.
@@ -75,7 +75,7 @@ def not_out():
 
 # Width and height of our main screen
 SET_WIDTH = 600
-SET_HEIGHT = 368
+SET_HEIGHT = 362
 
 #Tkinter GUI starts here
 window = tkinter.Tk()
