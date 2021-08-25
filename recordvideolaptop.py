@@ -1,7 +1,11 @@
 import numpy as np
 import os
 import cv2
+import requests
+import cv2
+import imutils
 
+url = "http://172.20.10.10:8080/shot.jpg"
 
 filename = 'video.avi'
 frames_per_second = 24.0
@@ -20,6 +24,10 @@ STD_DIMENSIONS =  {
     "1080p": (1920, 1080),
     "4k": (3840, 2160),
 }
+
+# Define the codec and create VideoWriter object
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
 
 
 # grab resolution dimensions and set video capture to it.
@@ -40,10 +48,23 @@ VIDEO_TYPE = {
 }
 
 def get_video_type(filename):
+    while True:
+	    img_resp = requests.get(url)
+	    img_arr = np.array(bytearray(img_resp.content), dtype=np.uint8)
+	    img = cv2.imdecode(img_arr, -1)
+	    combined_window = imutils.resize(img, width=1200, height=1900)
+	    cv2.imshow("Android_cam", combined_window)
+
+
+	# Press Esc key to exit
+	    if cv2.waitKey(1) == 27:
+		    break
+
     filename, ext = os.path.splitext(filename)
     if ext in VIDEO_TYPE:
         return  VIDEO_TYPE[ext]
     return VIDEO_TYPE['avi']
+
 
 
 cap = cv2.VideoCapture(0)
