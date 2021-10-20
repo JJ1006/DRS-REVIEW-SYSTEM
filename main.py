@@ -25,8 +25,6 @@ def play(speed):
     if flag:
         canvas.create_text(134, 25, fill="black", font="Times 26 bold", text="Decision Pending")
     flag = not flag
-        
-
 
 def pending(decision):
     # 1. Display decision pending image
