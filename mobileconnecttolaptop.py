@@ -1,11 +1,9 @@
-# Import essential libraries
 import requests
 import cv2
 import numpy as np
 import imutils
 
-# Replace the below URL with your own. Make sure to add "/shot.jpg" at last.
-url = "http://26.68.128.52:8080/shot.jpg"
+url = "http://192.168.43.248:8080/shot.jpg"
 
 # While loop to continuously fetching data from the Url
 while True:

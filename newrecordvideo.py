@@ -4,7 +4,7 @@ import requests
 import imutils
 
 # This will return video from the first webcam on your computer.
-url = "http://26.68.128.52:8080/shot.jpg"
+url = "http://192.168.43.248:8080/shot.jpg"
 
 # Define the codec and create VideoWriter object
 fourcc = cv2.VideoWriter_fourcc(*'MP4V')
