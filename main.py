@@ -6,7 +6,7 @@ import threading
 import imutils
 import time
 
-stream = cv2.VideoCapture('video0.mp4')
+stream = cv2.VideoCapture('IMG_2732.mov')
 flag = True
 def play(speed):
     global flag
@@ -79,11 +79,11 @@ SET_HEIGHT = 362
 #Tkinter GUI starts here
 window = tkinter.Tk()
 window.title("Jaahanava Joshi DRS Review System")
-cv_img = cv2.cvtColor(cv2.imread("welcome.jpg"), cv2.COLOR_BGR2RGB)
+cv_img = cv2.cvtColor(cv2.imread("welcome.jpg"), cv2.COLOR_BGR2RGB) # to read the image in BGR format and convert it to RGB format
 canvas = tkinter.Canvas(window, width=SET_WIDTH, height=SET_HEIGHT) #makes tkinter GUI compactible image
-photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(cv_img))
-image_on_canvas = canvas.create_image(0, 0, ancho=tkinter.NW, image = photo)
-canvas.pack()
+photo = PIL.ImageTk.PhotoImage(image=PIL.Image.fromarray(cv_img)) # tkinter compactible, takes image wherever expects an image. viewer
+image_on_canvas = canvas.create_image(0, 0, ancho=tkinter.NW, image = photo) # to display the image on the canvas
+canvas.pack() # to pack the canvas in window
 
 
 #Buttons to control playback
